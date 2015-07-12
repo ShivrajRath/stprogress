@@ -4,6 +4,8 @@
 
 A light-weighted slim top progress bar to indicate service calls happening from your app. This is particularly useful for AJAX heavy applications. Just include the library and it takes care of the rest.
 
+![alt tag](https://raw.githubusercontent.com/ShivrajRath/stprogress/master/screenshot.png)
+
 ### Install
 ``npm install stprogress``
 
