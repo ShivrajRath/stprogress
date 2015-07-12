@@ -20,12 +20,18 @@
       line-height: 50px;
     }
     
-    a, span {
+    a,
+    span {
       color: #000;
       text-decoration: none;
       border-bottom: 1px solid #000;
-      padding-bottom: 5px;
+      padding-bottom: 3px;
       cursor: pointer;
+    }
+    
+    code {
+      background-color: #E8E8E8;
+      font-size: 15px;
     }
   </style>
 </head>
@@ -38,28 +44,58 @@
 
   <h2>Install</h2>
   <ul>
-    <li>stprogress.js</li>
-    <li>stprogress.min.js</li>
-    <li>npm install stprogress</li>
-    <li>bower install stprogress</li>
+    <li><a href="./src/stprogress.js">stprogress.js</a>
+    </li>
+    <li><a href="./src/stprogress.min.js">stprogress.min.js</a>
+    </li>
+    <li><code>npm install stprogress</code>
+    </li>
+    <li><code>bower install stprogress</code>
+    </li>
+  </ul>
+
+  <h2>How to use</h2>
+  <ul>
+    <li>Include the script.</li>
+    <li>Add <code>&lt;div id="progress"&gt;&lt;/div&gt;</code> to your primary html.</li>
+    <li>Move <a href="./src/stprogress.css">stprogress.css</a> content to your css. You can customize progress bar color.</li>
+    <li>That's all. <a href="http://novicelab.org/">Read blog post</a></li>
   </ul>
 
   <h2>Features</h2>
   <ul>
     <li> No Configuration needed</li>
-    <li> Automatically displays if AJAX calls are in background</li>
+    <li> Automatically displays progressbar if AJAX calls are in background</li>
     <li> Runs with any framework</li>
     <li> AMD/CommonJS Support</li>
     <li> 1kb minified</li>
   </ul>
-  
+
   <h2>Demo</h2>
   <span onclick="singleService()">Single service</span> &nbsp; &nbsp;
   <span href="#" onclick="multipleServices()">Mutiple services</span>
 
   <div class="services"></div>
-    
+
   <h2>Licence</h2>
+  <p>
+    <p>The MIT License (MIT)</p>
+    <p>Copyright (c) 2015 Shivraj Rath</p>
+    <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+    </p>
+    <p>
+      The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+    </p>
+
+    <p>
+      THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+    </p>
+  </p>
+
+  <h3>
+    <a href="http://twitter.com/shivrajrath">Twitter</a>&nbsp;&nbsp;&nbsp;
+    <a href="http://github.com/shivrajrath">Github</a>
+  </h3>
 
   <!--jQuery added for demo. stProgress.js is not dependent on jQuery-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -72,27 +108,26 @@
         url: requestStr,
         dataType: "json",
         success: function (d) {
-          $('.services').append('<p>'+requestStr+' service success</p>');
+          $('.services').append('<p>' + requestStr + ' service success</p>');
         },
         error: function (e) {
-          $('.services').append('<p><em>'+requestStr+'</em> service failure</p>')
+          $('.services').append('<p><em>' + requestStr + '</em> service failure</p>')
         }
       });
     }
-    
-    function singleService(){
-      makeRequest('./data/data1.json'); 
+
+    function singleService() {
+      makeRequest('./data/data1.json');
     }
-    
-    function multipleServices(){
+
+    function multipleServices() {
       makeRequest('./data/data1.json');
       makeRequest('./data/data2.json');
       makeRequest('./data/data3.json');
       makeRequest('./data/data4.json');
     }
-    
+
     singleService();
-    
   </script>
 
 </body>

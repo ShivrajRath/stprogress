@@ -9,10 +9,19 @@ A light-weighted slim top progress bar to indicate service calls happening from 
 
 ``bower install stprogress``
 
+### How to use
+Include the script.
+
+Add ``<div id="progress"></div>`` to your primary html.
+
+Move ``src/stprogress.css`` content to your css. You can customize progress bar color.
+
+That's all. [Read blog post](http://novicelab.org)
+
 ### Features
 No Configuration needed
 
-Automatically displays if AJAX calls are in background
+Automatically displays progressbar if AJAX calls are in background
 
 Runs with any framework
 
