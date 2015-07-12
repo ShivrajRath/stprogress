@@ -18,14 +18,14 @@ Add ``<div id="progress"></div>`` to your primary html.
 
 Move ``src/stprogress.css`` content to your css. You can customize progress bar color.
 
-That's all. [Read blog post](http://novicelab.org)
+That's all. [Read blog post](http://novicelab.org/project/stprogress/591/)
 
 ### Features
 No Configuration needed
 
 Automatically displays progressbar if AJAX calls are in background
 
-Runs with any framework
+Runs with any JS framework
 
 AMD/CommonJS Support
 
