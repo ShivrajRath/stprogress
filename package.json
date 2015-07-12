@@ -1,6 +1,6 @@
 {
   "name": "stprogress",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A light-weighted slim top progress bar to indicate service calls happening from your app.",
   "main": "./src/stprogress.js",
   "repository": {

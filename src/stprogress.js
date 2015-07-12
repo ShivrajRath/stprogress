@@ -141,6 +141,8 @@
       function onReadyStateChange() {
         if (self.readyState === 4) {
           completeProgress();
+          // Remove event listner
+          self.removeEventListener('readystatechange', onReadyStateChange, false);
         }
       }
       this.addEventListener('readystatechange', onReadyStateChange, false);
@@ -158,8 +160,6 @@
     // more details.
     root.stProgress = stProgress;
 
-    // Define as an anonymous module so, through path mapping, it can be
-    // referenced as the "underscore" module.
     define(function () {
       return stProgress;
     });
