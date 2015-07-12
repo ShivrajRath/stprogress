@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>stProgress: A slim top progress bar</title>
+  <link rel="stylesheet" type="text/css" href="src/stprogress.css"></link>
+
+  <style>
+    body {
+      font-family: 'Palatino', sans-serif;
+      margin: 60px 8%;
+      line-height: 25px;
+    }
+    
+    h1 {
+      border-bottom: 1px solid #000;
+      line-height: 50px;
+    }
+    
+    a, span {
+      color: #000;
+      text-decoration: none;
+      border-bottom: 1px solid #000;
+      padding-bottom: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="progress"></div>
+  <h1>stProgress.js</h1>
+
+  <p>A light-weighted slim top progress bar to indicate service calls happening from your app. This is particularly useful for AJAX heavy applications. Just include the library and it takes care of rest.</p>
+
+  <h2>Install</h2>
+  <ul>
+    <li>stprogress.js</li>
+    <li>stprogress.min.js</li>
+    <li>npm install stprogress</li>
+    <li>bower install stprogress</li>
+  </ul>
+
+  <h2>Features</h2>
+  <ul>
+    <li> No Configuration needed</li>
+    <li> Automatically displays if AJAX calls are in background</li>
+    <li> Runs with any framework</li>
+    <li> AMD/CommonJS Support</li>
+    <li> 1kb minified</li>
+  </ul>
+  
+  <h2>Demo</h2>
+  <span onclick="singleService()">Single service</span> &nbsp; &nbsp;
+  <span href="#" onclick="multipleServices()">Mutiple services</span>
+
+  <div class="services"></div>
+    
+  <h2>Licence</h2>
+
+  <!--jQuery added for demo. stProgress.js is not dependent on jQuery-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="src/stprogress.js"></script>
+
+  <script>
+    function makeRequest(requestStr) {
+      $.ajax({
+        type: "GET",
+        url: requestStr,
+        dataType: "json",
+        success: function (d) {
+          $('.services').append('<p>'+requestStr+' service success</p>');
+        },
+        error: function (e) {
+          $('.services').append('<p><em>'+requestStr+'</em> service failure</p>')
+        }
+      });
+    }
+    
+    function singleService(){
+      makeRequest('./data/data1.json'); 
+    }
+    
+    function multipleServices(){
+      makeRequest('./data/data1.json');
+      makeRequest('./data/data2.json');
+      makeRequest('./data/data3.json');
+      makeRequest('./data/data4.json');
+    }
+    
+    singleService();
+    
+  </script>
+
+</body>
+
+</html>
+
+</html>

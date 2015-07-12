@@ -1,0 +1,20 @@
+#progress {
+  position: fixed;
+  z-index: 2147483647;
+  top: 0;
+  left: -6px;
+  width: 0%;
+  height: 2px;
+  background: #000;
+  -moz-border-radius: 1px;
+  -webkit-border-radius: 1px;
+  border-radius: 1px;
+  -moz-transition: width 500ms ease-out, opacity 400ms linear;
+  -ms-transition: width 500ms ease-out, opacity 400ms linear;
+  -o-transition: width 500ms ease-out, opacity 400ms linear;
+  -webkit-transition: width 500ms ease-out, opacity 400ms linear;
+  transition: width 500ms ease-out, opacity 400ms linear;
+  box-shadow: -2px 1px 9px #000;
+  -moz-box-shadow: -2px 1px 9px #000;
+  -webkit-box-shadow: -2px 1px 9px #000;
+}

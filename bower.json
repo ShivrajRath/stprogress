@@ -1,0 +1,29 @@
+{
+  "name": "stProgress",
+  "version": "0.0.4",
+  "authors": [
+    "Shivraj Rath <shivrajrath@gmail.com>"
+  ],
+  "description": "A light-weighted slim top progress bar to indicate service calls happening from your app.",
+  "main": "./src/stprogress.js",
+  "moduleType": [
+    "amd",
+    "es6",
+    "globals"
+  ],
+  "keywords": [
+    "progressbar",
+    "async",
+    "ajax",
+    "loading"
+  ],
+  "license": "MIT",
+  "homepage": "http://novicelab.org/stprogress",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

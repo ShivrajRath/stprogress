@@ -1,0 +1,21 @@
+{
+  "name": "stprogress",
+  "version": "0.0.4",
+  "description": "A light-weighted slim top progress bar to indicate service calls happening from your app.",
+  "main": "./src/stprogress.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ShivrajRath/stprogress.git"
+  },
+  "keywords": [
+    "progressbar",
+    "async",
+    "ajax"
+  ],
+  "author": "Shivraj Rath",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ShivrajRath/stprogress/issues"
+  },
+  "homepage": "http://novicelab.org/stprogress"
+}
