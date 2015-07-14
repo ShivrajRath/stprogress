@@ -88,7 +88,7 @@
      */
     function startProgress() {
       // If not started already
-      if (activeXHRs < 1) {
+      if (!continueProgress) {
 
         // Reset activeXHRs
         activeXHRs = 0;
@@ -111,7 +111,7 @@
       activeXHRs--;
 
       if (activeXHRs < 1) {
-        // Wait for half a second to verify a new request has not been triggered
+        // Wait for a second to verify a new request has not been triggered
         window.setTimeout(function () {
           if (activeXHRs < 1) {
             continueProgress = false;
@@ -122,7 +122,7 @@
               // After half a second stop the progress
             }, delay);
           }
-        }, delay);
+        }, delay * 2);
       }
     }
 
