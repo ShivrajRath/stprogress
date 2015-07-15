@@ -42,7 +42,7 @@
     var
       delay = 500,
       activeXHRs = 0,
-      continueProgress = false,
+      progressing = false,
       // Progress bar div
       progressDiv = document.getElementById('progress');
 
@@ -65,7 +65,7 @@
         var remaining = 100 - progressed;
 
         // If progress bar count exceeds 99, stop the progress; the page is super slow
-        if (progressed > 99 || !continueProgress) {
+        if (progressed > 99 || !progressing) {
           completeProgress();
           return;
         }
@@ -88,12 +88,12 @@
      */
     function startProgress() {
       // If not started already
-      if (!continueProgress) {
+      if (!progressing) {
 
         // Reset activeXHRs
         activeXHRs = 0;
 
-        continueProgress = true;
+        progressing = true;
         // Set progress div display block
         progressDiv.style.display = 'block';
         // Start the progress
@@ -114,7 +114,7 @@
         // Wait for a second to verify a new request has not been triggered
         window.setTimeout(function () {
           if (activeXHRs < 1) {
-            continueProgress = false;
+            progressing = false;
             setProgressWidth(101);
             window.setTimeout(function () {
               progressDiv.style.display = 'none';
