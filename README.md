@@ -6,6 +6,9 @@ A light-weighted slim top progress bar to indicate service calls happening from 
 
 ![alt tag](https://raw.githubusercontent.com/ShivrajRath/stprogress/master/screenshot.png)
 
+### Prerequisite
+``nodejs``
+
 ### Install
 ``npm install stprogress``
 

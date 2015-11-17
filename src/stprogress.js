@@ -1,4 +1,5 @@
 /* stProgress, (c) 2015 Shivraj Rath - http://novicelab.org/stprogress
+ * A light-weighted slim top progress bar to indicate service calls happening from your app.
  * @license MIT
  */
 ;(function (XHR) {
@@ -18,7 +19,7 @@
   var freeModule = objectTypes[typeof module] && module && !module.nodeType && module;
 
   /** Detect free variable `global` from Node.js. */
-  var freeGlobal = freeExports && freeModule && typeof global == 'object' && global && global.Object && global;
+  var freeGlobal = freeExports && freeModule && typeof global === 'object' && global && global.Object && global;
 
   /** Detect free variable `self`. */
   var freeSelf = objectTypes[typeof self] && self && self.Object && self;
@@ -37,8 +38,11 @@
    */
   var root = freeGlobal || ((freeWindow !== (this && this.window)) && freeWindow) || freeSelf || this;
 
+  /**
+   * Runs the code in context of environment (browser or node)
+   * @return {undefined}
+   */
   function runInContext() {
-    // Indicates whether progress should continue or stop
     var
       delay = 500,
       activeXHRs = 0,
@@ -84,7 +88,8 @@
     }
 
     /**
-     * Starts the progress bar
+     * Starts the progress bar and increments activeXHRs
+     * @return {undefined}
      */
     function startProgress() {
       // If not started already
@@ -104,7 +109,8 @@
     }
 
     /**
-     * Complete the progress
+     * Decrements the active XHR requests and completes the progress if none exists
+     * @return {undefined}
      */
     function completeProgress() {
 
@@ -130,21 +136,28 @@
     var open = XHR.prototype.open;
     var send = XHR.prototype.send;
 
+    /**
+     * XHR.open override
+     */
     XHR.prototype.open = function (method, url, async, user, pass) {
       startProgress();
       open.call(this, method, url, async, user, pass);
     };
 
+    /**
+     * XHR.send override
+     */
     XHR.prototype.send = function (data) {
       var self = this;
 
       function onReadyStateChange() {
         if (self.readyState === 4) {
           completeProgress();
-          // Remove event listner
+          // Remove event listner; prevents memory leaks
           self.removeEventListener('readystatechange', onReadyStateChange, false);
         }
       }
+      // Adds readystatechange event listner
       this.addEventListener('readystatechange', onReadyStateChange, false);
       send.call(this, data);
     };
@@ -153,7 +166,7 @@
   // Export progressbar
   var stProgress = runInContext();
 
-  if (typeof define == 'function' && typeof define.amd == 'object' && define.amd) {
+  if (typeof define === 'function' && typeof define.amd === 'object' && define.amd) {
     // Expose lodash to the global object when an AMD loader is present to avoid
     // errors in cases where lodash is loaded by a script tag and not intended
     // as an AMD module. See http://requirejs.org/docs/errors.html#mismatch for
