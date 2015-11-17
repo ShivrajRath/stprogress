@@ -39,7 +39,7 @@
   var root = freeGlobal || ((freeWindow !== (this && this.window)) && freeWindow) || freeSelf || this;
 
   /**
-   * Runs the code in context of environment (browser or node)
+   * Runs the code in context AMD/COMMONJS supported
    * @return {undefined}
    */
   function runInContext() {
